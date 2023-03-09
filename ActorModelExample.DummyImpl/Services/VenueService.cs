@@ -15,14 +15,14 @@ public class VenueService : IVenueService
 
     public Task RegisterVenueAsync(Venue venue)
     {
-        var totalSeats = LiveEventConstants.EventRows * LiveEventConstants.SeatsPerRow + 1;
+        var totalSeats = LiveEventConstants.EventRows * LiveEventConstants.SeatsPerRow;
         foreach (var liveEvent in venue.LiveEvents)
         {
             var reservedSeats = new List<int>();
             var selectedSeats = new List<int>();
             var freeSeats = new List<int>();
 
-            for (int seatNumber = 1; seatNumber < totalSeats; seatNumber++)
+            for (int seatNumber = 1; seatNumber <= totalSeats; seatNumber++)
             {
                 freeSeats.Add(seatNumber);
             }

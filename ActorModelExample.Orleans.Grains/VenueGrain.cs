@@ -6,20 +6,23 @@ using System.Collections.Generic;
 namespace ActorModelExample.Orleans.Grains;
 
 [StorageProvider(ProviderName = "ticket-system")]
-public class VenueGrain : Grain<HashSet<Guid>>, IVenueGrain
+public class VenueGrain : Grain<List<LiveEvent>>, IVenueGrain
 {
-    public async Task AddLiveEventAsync(LiveEvent liveEvent)
+    public async Task InitLiveEventAsync(LiveEvent liveEvent)
     {
-        State.Add(liveEvent.Id);
+        State.Add(liveEvent);
         await WriteStateAsync();
 
-        // TODO rest of the method
+        for (int i = 1; i <= liveEvent.TotalSeats; i++)
+        {
+            var seatGrain = GrainFactory.GetGrain<ISeatGrain>(liveEvent.Id.ToString()+"-"+i);
+            await seatGrain.InitSeatAsync(i, liveEvent.Id);
+        }
     }
 
     public Task<IReadOnlyCollection<LiveEvent>> GetLiveEventsAsync()
     {
-        // TODO implement me
-        IReadOnlyCollection<LiveEvent> liveEvents = Array.Empty<LiveEvent>();
+        IReadOnlyCollection<LiveEvent> liveEvents = State;
         return Task.FromResult(liveEvents);
     }
 }
