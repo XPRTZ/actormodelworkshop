@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ActorModelExample.Domain\ActorModelExample.Domain.csproj" />
-    <ProjectReference Include="..\ActorModelExample.DummyImpl\ActorModelExample.DummyImpl.csproj" />
     <ProjectReference Include="..\ActorModelExample.Orleans.Server\ActorModelExample.Orleans.Server.csproj" />
   </ItemGroup>
 
