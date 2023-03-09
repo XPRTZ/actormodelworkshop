@@ -1,0 +1,21 @@
+﻿@using ActorModelExample.WebApp.Common;
+
+<div class="podium">podium</div>
+<div class="table">
+    <div class="table-row-group">
+        @for (var rowIndex = 0;  rowIndex < LiveEventConstants.EventRows; rowIndex++)
+        {
+            <div class="table-row">
+                @for (int seatIndex = 0; seatIndex < LiveEventConstants.SeatsPerRow; seatIndex++)
+                {
+                    var seatNumber = seatIndex + (rowIndex * 10) + 1;
+                    var style = GetSeatStyle(seatNumber);
+                    <div class="table-cell seat @style" @onclick="(args) => ReserveSeat(args, seatNumber)">
+                        @seatNumber
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+

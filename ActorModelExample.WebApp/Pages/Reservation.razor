@@ -1,0 +1,74 @@
+﻿@page "/reservation/{ParamId}/{ParamBookingId}"
+@using ActorModelExample.WebApp.Pages.Components;
+@using ActorModelExample.WebApp.Common;
+@using ActorModelExample.Domain.Models;
+
+<PageTitle>Reservation</PageTitle>
+
+<div class="reservation-container">
+    <div class="info">
+        <div class="artist">@LiveEvent.Artist</div>
+        <div class="date">@LiveEvent.Date.ToString("dddd dd MMMM yyyy, HH:mm", LiveEventConstants.CultureInfo)</div>
+    </div>
+
+    <div class="cover"><img src="@LiveEvent.Picture" /></div>
+
+    <div class="seats">
+        <SeatSelectionComponent OnReserveSeat="ReserveSeatAsync"
+            ReserveSeats="ReserveSeats"
+            BookedSeats="BookedSeats"></SeatSelectionComponent>
+    </div>
+
+    <div class="order">
+        <EditForm Model="@_booking" OnValidSubmit="@HandleValidSubmitAsync">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="label">Naam</div>
+            <div class="value"><InputText id="name" @bind-Value="_booking.Name" /></div>
+            <div class="clear"></div>
+
+            <div class="label">Seats</div>
+            <div class="clear"></div>
+            <div class="table">
+                <div class="table-row-group">
+                    @if (!ReserveSeats.Any())
+                    {
+                        <div class="table-row">
+                            <div class="table-cell">
+                                Geen stoelen geselecteerd
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        var orderedSeats = ReserveSeats.OrderBy(a => a).ToList();
+                        for (var index = 0; index < orderedSeats.Count(); index++)
+                        {
+                            var seatNumber = orderedSeats[index];
+                            <div class="table-row">
+                                <div class="table-cell seat">
+                                    Stoel @seatNumber
+                                </div>
+                                <div class="table-cell price">
+                                    &euro; @LiveEvent.Price
+                                </div>
+                                <div class="table-cell">
+                                    <div class="remove-button" @onclick="(args) => CancelReservationAsync(args, seatNumber)">
+                                    Remove
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            
+            <div class="label total-price">Totaal:</div>
+            <div class="value">&euro; @(LiveEvent.Price * ReserveSeats.Count()) </div>
+            <div class="clear"></div>
+
+            <button class="submit" type="submit">Submit</button>
+        </EditForm>
+    </div>
+</div>
