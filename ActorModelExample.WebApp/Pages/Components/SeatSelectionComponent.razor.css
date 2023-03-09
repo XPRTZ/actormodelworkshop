@@ -1,0 +1,46 @@
+﻿.podium {
+    width: 355px;
+    height: 50px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+    padding-top: 15px;
+    font-variant: small-caps;
+    background-color: rgb(50,50,50);
+    color: rgb(255, 255, 255);
+    font-size: 1.3em;
+}
+
+.table {
+    border: 2px solid rgb(0,0,0);
+    background: rgb(188, 188, 188);
+    padding-bottom: 5px;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    padding: 5px 3px 0px 3px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.free {
+    background-image: url('../images/free.webp');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 5px;
+}
+
+.reserved {
+    background-image: url('../images/reserved.webp');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 5px;
+}
+
+.selected {
+    background-image: url('../images/selected.webp');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 5px;
+}

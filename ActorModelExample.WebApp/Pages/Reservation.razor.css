@@ -1,0 +1,131 @@
+﻿
+.table-cell {
+    padding-right: 20px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    height: 40px;
+    padding-top: 10px;
+}
+
+.table {
+    padding-bottom: 10px;
+}
+
+.reservation-container {
+    padding: 0px 10px 0px 10px;
+    margin: 10px 10px 10px;
+    display: grid;
+    grid-template-columns: 355px 1fr;
+    grid-template-rows: 50px 1fr 1fr;
+    grid-template-areas:
+        "info cover"
+        "seats cover"
+        "order order";
+    gap: 0px;
+    margin-left: 10px;
+}
+
+.info {
+    grid-area: info;
+}
+
+    .info .artist {
+        font-weight: bold;
+        color: rgb(0,0,0);
+        font-size: 1.3em;
+    }
+
+
+    .info .date {
+            color: rgb(128, 128, 128);
+            font-variant: small-caps;
+            font-size: 0.8em;
+        }
+
+.cover {
+    grid-area: cover;
+    padding-left: 20px;
+}
+
+    .cover img {
+            width: 400px;
+            height: 300px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+            border-radius: 15px 15px 15px 15px;
+        }
+
+.seats {
+    grid-area: seats;
+}
+
+.order {
+    padding: 10px;
+    grid-area: order;
+    margin-top: 30px;
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(200, 200, 200);
+    box-shadow: rgb(0 0 0 / 30%) -4px 4px 8px 0px;
+}
+
+.seat {
+    font-size: 1.0em;
+    width: 150px;
+}
+.price {
+    width: 100px;
+}
+
+.remove-button {
+    padding: 8px 12px 8px 12px;
+    background-color: rgb(223, 2, 2);
+    color: rgb(255, 255, 255);
+    border-radius: 5px 5px 5px 5px;
+}
+
+.label {
+    float: left;
+    width: 80px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.value {
+    float: left;
+}
+
+
+.total-price {
+    width: 170px;
+}
+
+.submit {
+    padding: 8px 12px 8px 12px;
+    margin: 0px;
+    background-color: rgb(2, 180, 108);
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    border-radius: 5px 5px 5px 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+
+@media screen and (max-width: 600px) {
+    .reservation-container {
+        padding: 0px 10px 0px 10px;
+        margin: 10px 10px 10px;
+        display: grid;
+        grid-template-columns: 355px;
+        grid-template-rows: 1fr 50px 1fr 1fr;
+        grid-template-areas:
+            "cover"
+            "info" 
+            "seats"
+            "order";
+        gap: 0px;
+        margin-left: 10px;
+    }
+}
