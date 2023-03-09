@@ -9,6 +9,6 @@ public record LiveEvent
     [Id(1)]
     public string Artist { get; init; } = null!;
 
-    [Id(1)]
+    [Id(2)]
     public int TotalSeats { get; init; }
 }
