@@ -1,0 +1,88 @@
+﻿.list {
+    padding: 0px 10px 0px 10px;
+    margin: 10px 10px 10px;
+    box-shadow: rgb(0 0 0 / 30%) -4px 4px 8px 0px;
+}
+
+.list .title {
+    font-weight: bold;
+    color: rgb(0,0,0);
+    font-size: 1.3em;
+}
+
+.list .record-count {
+    color: rgb(128, 128, 128);
+    font-variant: small-caps;
+    font-size: 0.8em;
+}
+
+    .list .item {
+        border-bottom: 1px solid rgb(200, 200, 200);
+    }
+
+        .list .item .date {
+            width: 40px;
+            float: left;
+            padding: 10px 20px 20px 10px;
+        }
+
+            .list .item .date .month {
+                color: rgb(0,0,0);
+                font-variant: small-caps;
+                font-size: 1.2em;
+            }
+
+            .list .item .date .day {
+                color: rgb(0,0,0);
+                font-variant: small-caps;
+                font-size: 1.2em;
+                text-align: center;
+            }
+
+        .list .item .details {
+            float: left;
+            padding-top: 10px;
+            width: 200px;
+        }
+            .list .item .details .dayofweek {
+                float: left;
+                color: rgb(100, 100, 100);
+                font-size: 0.8em;
+                padding-right: 15px;
+            }
+
+            .list .item .details .time {
+                display: list-item;
+                padding-left: 0px;
+                float: left;
+                font-size: 0.8em;
+                color: rgb(100, 100, 100);
+            }
+
+            .list .item .details .artist {
+                clear: both;
+                font-size: 1em;
+                color: rgb(0,0,0);
+            }
+
+            .list .item .details .location {
+                font-size: 0.8em;
+                color: rgb(100, 100, 100);
+            }
+
+        .list .item .action {
+            float: left;
+            padding-top: 23px;
+            padding-left: 20px;
+        }
+
+            .list .item .action .btn-reserve {
+                padding: 8px 12px 8px 12px;
+                background-color: rgb(2, 108, 223);
+                color: rgb(255, 255, 255);
+                border-radius: 5px 5px 5px 5px;
+            }
+            
+.clear {
+    clear: both;
+}

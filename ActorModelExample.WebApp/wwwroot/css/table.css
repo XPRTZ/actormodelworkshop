@@ -1,0 +1,41 @@
+﻿﻿.table {
+    display: table;
+    width: 100%;
+}
+
+.table .table-caption {
+    display: table-caption;
+}
+
+.table .table-header-group {
+    display: table-header-group;
+}
+
+.table .table-row-group {
+    display: table-row-group;
+}
+
+.table .table-row {
+    display: table-row;
+}
+
+.table .table-row-group div.table-row {
+}
+
+/*
+    .table .table-row-group div.table-row:nth-child(odd) {
+        background-color: #FFF;
+    }
+*/
+
+.table .table-cell {
+    display: table-cell;
+}
+
+/*
+.table-row:nth-child(odd) .team {
+    background-color: white;
+    color: black;
+}
+    */
+

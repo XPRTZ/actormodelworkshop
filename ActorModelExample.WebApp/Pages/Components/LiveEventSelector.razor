@@ -1,0 +1,30 @@
+﻿@using System.Globalization;
+@using ActorModelExample.Domain.Common;
+
+<div class="list">
+    <div class="title">Concerten</div>
+    <div class="record-count">@Venue.LiveEvents.Count() concerten</div>
+    @foreach (var liveEvent in Venue.LiveEvents)
+    {
+        <div class="item">
+            <div class="date">
+                <div class="month">@liveEvent.Date.ToString("MMM", LiveEventConstants.CultureInfo)</div>
+                <div class="day">@liveEvent.Date.Day</div>
+            </div>
+            <div class="details">
+                <div class="dateinfo">
+                <div class="dayofweek">@liveEvent.Date.ToString("dddd", LiveEventConstants.CultureInfo)</div>
+                <div class="time">@liveEvent.Date.ToString("HH:mm", LiveEventConstants.CultureInfo)</div>
+                </div>
+                <div class="artist">@liveEvent.Artist</div>    
+                <div class="location">@Venue.Location, @Venue.Name</div>
+            </div>
+            <div class="action">
+                <div class="btn-reserve" @onclick="(args) => SelectLiveEvent(args, liveEvent.Id)">
+                    Tickets &gt;
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    }
+</div>
