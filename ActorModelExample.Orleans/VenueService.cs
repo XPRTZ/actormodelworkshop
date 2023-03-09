@@ -40,7 +40,7 @@ public class VenueService : IVenueService
             { SeatStatus.Booked, new() }
         };
 
-        // this implementation sucks performance wise but it works
+        // this implementation sucks performance wise but it works. Better use https://learn.microsoft.com/en-us/dotnet/orleans/grains/observers
         var totalSeats = LiveEventConstants.EventRows * LiveEventConstants.SeatsPerRow;
         for (var seatNr = 1; seatNr <= totalSeats; seatNr++)
         {

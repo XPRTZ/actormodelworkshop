@@ -15,13 +15,17 @@ public class VenueGrainTests
         _cluster = fixture.Cluster;
     }
 
-
     [Fact]
-    public async Task Test()
+    public async Task AddLiveEventAsync_()
     {
         // arrange
         var venueGrain = _cluster.GrainFactory.GetGrain<IVenueGrain>(0);
-        var liveEvent = new LiveEvent { };
+        var liveEvent = new LiveEvent
+        {
+            Id = Guid.NewGuid(),
+            Artist = "TestArtist",
+            TotalSeats = 5
+        };
 
         // act
         await venueGrain.AddLiveEventAsync(liveEvent);
