@@ -10,13 +10,12 @@ public static class WebApplicationBuilderExtensions
     public static WebApplicationBuilder AddOrleans(this WebApplicationBuilder builder)
     {
         builder.Host.UseOrleans(siloBuilder =>
-        {            
+        {
+            siloBuilder.UseDashboard(options => { });
             siloBuilder.UseLocalhostClustering();
             siloBuilder.AddMemoryGrainStorage("ticket-system");
+            siloBuilder.UseInMemoryReminderService();
             siloBuilder.AddStartupTask<SeedLiveEventsTask>();
-
-            // add Orleans dashboard on http://localhost:8080
-            siloBuilder.UseDashboard(options => { });
         });
 
         builder.Services.AddTransient<IVenueService, VenueService>();
